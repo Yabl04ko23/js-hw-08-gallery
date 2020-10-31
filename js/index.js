@@ -5,9 +5,11 @@ const listGallery = document.querySelector('.js-gallery'),
     lightboxImg =  document.querySelector('.lightbox__image');
 
 listGallery.addEventListener("click", (event) => {
-    event.preventDefault();
-    lightbox.classList.add("is-open");
-    lightboxImg.setAttribute("src", event.target.dataset.source);
+    if (event.target.classList.contains("gallery__image")){
+        event.preventDefault();
+        lightbox.classList.add("is-open");
+        lightboxImg.setAttribute("src", event.target.dataset.source);
+    }
 });
 
 lightboxCloseBtn.addEventListener("click", () => {
